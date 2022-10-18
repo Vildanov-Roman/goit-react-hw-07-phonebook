@@ -50,7 +50,6 @@ export class App extends Component {
     this.setState({ filter: value });
   };
 
-  // Вопрос - в стэйте контакты делать пустой массив?
   componentDidMount() {
     const contacts = localStorage.getItem('contacts');
     const parsedContacts = JSON.parse(contacts)
