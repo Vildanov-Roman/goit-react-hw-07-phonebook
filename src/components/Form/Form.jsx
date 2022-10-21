@@ -83,5 +83,4 @@ export class FormContacts extends Component {
       </>
     );
   }
-}
-
+};

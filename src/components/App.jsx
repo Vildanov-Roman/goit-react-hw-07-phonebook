@@ -3,6 +3,8 @@ import { ContactList } from './Contacts/ContactsList';
 import { Filter } from './Filter';
 import { FormContacts } from './Form/Form';
 
+const contactsLict = 'contactList';
+
 export class App extends Component {
   state = {
     contacts: [
@@ -49,20 +51,23 @@ export class App extends Component {
   handlerFilter = ({ target: { value } }) => {
     this.setState({ filter: value });
   };
-
+    
   componentDidMount() {
-    const contacts = localStorage.getItem('contacts');
-    const parsedContacts = JSON.parse(contacts)
-
-    this.setState({ contacts: parsedContacts })
-  }
-
-  componentDidUpdate(prevState) {
-    if (this.state.contacts !== prevState.contacts) {
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
+    const contactsFrom = JSON.parse(localStorage.getItem(contactsLict));
+    if (contactsFrom) {
+      this.setState({
+        contacts: contactsFrom,
+      });
     }
   }
 
+  componentDidUpdate(_, prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      const contacts = JSON.stringify(this.state.contacts);
+      localStorage.setItem(contactsLict, contacts);
+    }
+  }
+  
   render() {
     return (
       <>
