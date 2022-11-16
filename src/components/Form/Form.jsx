@@ -1,11 +1,16 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { addUserData } from 'redux/slice';
+
 import { nanoid } from 'nanoid';
 import css from './Form.module.css';
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 
-export default function FormContacts({ addUserData }) {
+export default function FormContacts() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
+  const contacts = useSelector(state => state.contacts.contacts);
+  const dispatch = useDispatch();
 
   const handleChange = evt => {
     const { name, value } = evt.target;
@@ -23,16 +28,26 @@ export default function FormContacts({ addUserData }) {
 
   const handleSubmit = evt => {
     evt.preventDefault();
+
+    const contactFilter = contacts?.some(
+      option => option.name.toLowerCase() === name.toLowerCase()
+    );
+
+    if (contactFilter) {
+      alert(`${name} is already in contacts.`);
+      return;
+    }
     const id = nanoid();
     const user = { name, number, id };
-    addUserData(user);
+
+    dispatch(addUserData(user));
     setName('');
     setNumber('');
   };
 
   return (
     <>
-    <form className={css.form} onSubmit={handleSubmit}>
+      <form className={css.form} onSubmit={handleSubmit}>
         <label className={css.label}>
           Name
           <input
@@ -43,6 +58,7 @@ export default function FormContacts({ addUserData }) {
             onChange={handleChange}
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            placeholder="Taras Shevchenko"
             required
           />
         </label>
@@ -56,6 +72,7 @@ export default function FormContacts({ addUserData }) {
             onChange={handleChange}
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            placeholder="Tel: +XXXXXXXXXXXX"
             required
           />
         </label>
@@ -66,7 +83,3 @@ export default function FormContacts({ addUserData }) {
     </>
   );
 }
-
-FormContacts.propTypes = {
-    addUserData: PropTypes.func.isRequired,
-  };
