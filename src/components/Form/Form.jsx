@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addUserData } from 'redux/slice';
+import { addUserData, getContact } from 'redux/slice';
 
 import { nanoid } from 'nanoid';
 import css from './Form.module.css';
@@ -9,7 +9,7 @@ export default function FormContacts() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const contacts = useSelector(state => state.contacts.contacts);
+  const contacts = useSelector(getContact);
   const dispatch = useDispatch();
 
   const handleChange = evt => {

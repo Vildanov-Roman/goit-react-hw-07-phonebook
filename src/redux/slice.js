@@ -44,4 +44,6 @@ export default contactSlice.reducer;
 
 // Selectors
 
+export const getFilter = state => state.contacts.filter;
 
+export const getContact = state => state.contacts.contacts;
