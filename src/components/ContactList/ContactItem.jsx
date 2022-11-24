@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import css from './Contacts.module.css';
 
-export const ContactListItem = ({ id, name, number, onDelete }) => {
+export const ContactItem = ({ id, name, number, onDelete }) => {
   return (
     <li className={css.contacts__item} key={id}>
       <p>
@@ -14,7 +14,7 @@ export const ContactListItem = ({ id, name, number, onDelete }) => {
   );
 };
 
-ContactListItem.propTypes = {
+ContactItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,

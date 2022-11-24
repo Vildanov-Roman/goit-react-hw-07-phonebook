@@ -3,7 +3,7 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://637d15b516c1b892ebc74530.mockapi.io/';
 
-const getContacts = createAsyncThunk('contacts/get', async () => {
+const fetchContacts = createAsyncThunk('contacts/get', async () => {
   try {
     const { data } = await axios.get('/contacts');
     return data;
@@ -30,4 +30,4 @@ const deleteContacts = createAsyncThunk('/contacts/delete', async id => {
   }
 });
 
-export { getContacts, addContacts, deleteContacts };
+export { fetchContacts, addContacts, deleteContacts };
