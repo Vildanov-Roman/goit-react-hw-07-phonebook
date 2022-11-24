@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import css from './Form/Form.module.css';
-import { filterContacts } from 'Redux/Contacts/actions';
+import { filterContacts } from 'redux/Contacts/actions';
 
 export const Filter = () => {
   const name = useSelector(state => state.contacts.filter);
