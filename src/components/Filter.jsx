@@ -1,14 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { filterContact, getFilter } from 'redux/slice';
-
 import css from './Form/Form.module.css';
+import { filterContacts } from 'Redux/Contacts/actions';
 
 export const Filter = () => {
-  const name = useSelector(getFilter);
+  const name = useSelector(state => state.contacts.filter);
   const dispatch = useDispatch();
-
-  const handlerFilter = evt => {
-    dispatch(filterContact(evt.target.value));
+  const handlerInput = evt => {
+    dispatch(filterContacts(evt.target.value));
   };
 
   return (
@@ -20,7 +18,7 @@ export const Filter = () => {
           type="text"
           name="name"
           value={name}
-          onChange={handlerFilter}
+          onChange={handlerInput}
         />
       </label>
     </form>

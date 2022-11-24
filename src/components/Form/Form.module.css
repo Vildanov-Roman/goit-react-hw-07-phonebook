@@ -1,52 +1,52 @@
 .form {
-    display: flex;
-    flex-direction: column;
-    margin: 20px 0;
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 10px;
-    color: black;
-  }
-  
-  .label {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-  
-    font-family: sans-serif;
-  }
-  
-  .input {
-    background-color: transparent;
-    border: 1px solid black;
-    border-radius: 4px;
-    padding: 10px;
-    color: black;
-  }
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  color: black;
+}
 
-  .input:focus {
-    outline: none;
-    border: none;
-    box-shadow: 0 0 10px 0 #799be6 inset, 0 0 10px 4px #799be6;
-  }
-  
-  .btn {
-    font-family: sans-serif;
-    cursor: pointer;
-    background-color: rgba(81, 41, 200, 0.212);
-    line-height: 1.62;
-    margin-top: 10px;
-    padding: 6px 22px;
-    width: 150px;
-    border-radius: 5px;
-    color: black;
-    border: 1px solid black;
-  }
-  
-  .btn:hover,
-  .btn:focus {
-    color: white;
-    background-color: rgba(0, 0, 255, 0.687);
-    box-shadow: 0px 3px 1px rgb(0 0 0 / 10%), 0px 1px 2px rgb(0 0 0 / 8%),
-      0px 2px 2px rgb(0 0 0 / 12%);
-  }
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+
+  font-family: sans-serif;
+}
+
+.input {
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 10px;
+  color: black;
+}
+
+.input:focus {
+  outline: none;
+  border: none;
+  box-shadow: 0 0 10px 0 #799be6 inset, 0 0 10px 4px #799be6;
+}
+
+.btn {
+  font-family: sans-serif;
+  cursor: pointer;
+  background-color: rgba(81, 41, 200, 0.212);
+  line-height: 1.62;
+  margin-top: 10px;
+  padding: 6px 22px;
+  width: 150px;
+  border-radius: 5px;
+  color: black;
+  border: 1px solid black;
+}
+
+.btn:hover,
+.btn:focus {
+  color: white;
+  background-color: rgba(0, 0, 255, 0.687);
+  box-shadow: 0px 3px 1px rgb(0 0 0 / 10%), 0px 1px 2px rgb(0 0 0 / 8%),
+    0px 2px 2px rgb(0 0 0 / 12%);
+}
