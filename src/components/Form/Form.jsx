@@ -7,7 +7,7 @@ export default function Form() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(state => state.contacts.contacts);
 
   const dispatch = useDispatch();
 
@@ -29,7 +29,7 @@ export default function Form() {
     evt.preventDefault();
 
     const contactFilter = contacts?.some(
-      option => option.name.toLowerCase() === name.toLowerCase()
+      contact => contact.name.toLowerCase() === name.toLowerCase()
     );
 
     if (contactFilter) {

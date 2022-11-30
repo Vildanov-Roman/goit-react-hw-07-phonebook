@@ -1,12 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import css from './Form/Form.module.css';
 import { filterContscts } from 'redux/Contacts/filterSlice';
-import { getFilter } from 'redux/Contacts/selectors';
 
 export const Filter = () => {
-  const name = useSelector(getFilter);
+  const name = useSelector(state => state.filter.data);
   const dispatch = useDispatch();
-
   const handlerInput = evt => {
     dispatch(filterContscts(evt.target.value));
   };
